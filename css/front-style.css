@@ -1,0 +1,467 @@
+/* 
+ * Created on : 21-feb-2017, 21:29:32
+ * Inicializa el panel de administración.
+ * Author: Code&Friends
+ * Author Email: codeandfriends@gmail.com
+ * Author: Yunior Concepcion lopez
+ * Author Email: yuniorcl@gmail.com
+*/
+
+
+@font-face {
+    font-family: "Arima Madurai", cursive;
+    src: url('https://fonts.googleapis.com/css?family=Arima+Madurai:100,200,300,400,500,700,800,900');
+}
+
+.contenedor-card .btn:hover,
+.contenedor-card .btn:focus,
+.contenedor-card .btn:active{
+    outline: 0 !important;
+}
+/* entire container, keeps perspective */
+.contenedor-card  .card-container {
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+    margin-bottom: 30px;
+}
+/* flip the pane when hovered */
+.contenedor-card  .card-container:not(.manual-flip):hover .card,
+.contenedor-card  .card-container.hover.manual-flip .card{
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+
+.contenedor-card  .card-container.static:hover .card,
+.contenedor-card  .card-container.static.hover .card {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+/* flip speed goes here */
+.contenedor-card  .card {
+    -webkit-transition: -webkit-transform .5s;
+    -moz-transition: -moz-transform .5s;
+    -o-transition: -o-transform .5s;
+    transition: transform .5s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.contenedor-card  .front, .back {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FFF;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+}
+
+/* front pane, placed above back */
+.contenedor-card  .front {
+    z-index: 2;
+}
+
+/* back, initially hidden pane */
+.contenedor-card  .back {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+    z-index: 3;
+}
+
+.contenedor-card  .back .btn-simple{
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+}
+/*        Style       */
+
+
+.contenedor-card  .card{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 4px;
+    color: #444444;
+}
+.contenedor-card  .card-container, .front, .back {
+    width: 100%;
+    height: 375px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+    box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+}
+.contenedor-card  .card .cover{
+    height: 200px;
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
+}
+.contenedor-card  .card .cover img{
+    width: 100%;
+    min-height: 255px;
+    max-height: 255px;
+}
+.contenedor-card  .card .user{
+    border-radius: 50%;
+    display: block;
+    height: 120px;
+    margin: -55px auto 0;
+    overflow: hidden;
+    width: 120px;
+}
+.contenedor-card  .card .user img{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 4px solid #FFFFFF;
+    width: 100%;
+}
+
+.contenedor-card  .card .content{
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    padding: 0px 5px 0px;
+    margin-top: 0px;
+}
+.contenedor-card .card .content .main {
+    min-height: 100px;   
+}
+.contenedor-card  .card .back .content .main {
+    height: 235px;
+}
+.contenedor-card  .card .name {
+    font-family: 'Arima Madurai', cursive;
+    font-size: 22px;
+    line-height: 28px;
+    margin: 10px 0 0;
+    text-align: center;
+    text-transform: capitalize;
+}
+.contenedor-card  .card h5{
+    margin: 5px 0;
+    font-weight: 400;
+    line-height: 20px;
+}
+.contenedor-card .card .profession{
+    color: #999999;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.contenedor-card  .card .footer {
+    border-top: 1px solid #EEEEEE;
+    color: #999999;
+    margin: 10px 0 0;
+    padding: 8px 0 0;
+    text-align: center;
+}
+.contenedor-card .card .footer .social-links{
+    font-size: 18px;
+    margin-top: -6px;
+}
+.contenedor-card  .card .footer .social-links a{
+    margin: 0 7px;
+}
+.contenedor-card .card .footer .btn-simple{
+    margin-top: -6px;
+    float: right;
+}
+.contenedor-card .card .header {
+    padding: 15px 20px;
+    height: 90px;
+}
+.contenedor-card  .card .motto{
+    font-family: 'Arima Madurai', cursive;
+    border-bottom: 1px solid #EEEEEE;
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.contenedor-card .card .stats-container{
+    width: 100%;
+    margin-top: 50px;
+}
+.contenedor-card .card .stats{
+    display: block;
+    float: left;
+    width: 33.333333%;
+    text-align: center;
+}
+
+.contenedor-card .card .stats:first-child{
+    border-right: 1px solid #EEEEEE;
+}
+.contenedor-card .card .stats:last-child{
+    border-left: 1px solid #EEEEEE;
+}
+.contenedor-card .card .stats h4{
+    font-family: 'Arima Madurai', cursive;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.contenedor-card p, .contenedor-card button{
+    font-family: 'Arima Madurai', cursive;
+   }
+   
+.contenedor-card .card .stats p{
+    color: #777777;
+}
+/*      Just for presentation        */
+
+.contenedor-card .title{
+    color: #506A85;
+    text-align: center;
+    font-weight: 300;
+    font-size: 44px;
+    margin-bottom: 90px;
+    line-height: 90%;
+}
+.contenedor-card .title small{
+    font-size: 17px;
+    color: #999;
+    text-transform: uppercase;
+    margin: 0;
+}
+.contenedor-card .space-30{
+    height: 30px;
+    display: block;
+}
+.contenedor-card .space-50{
+    height: 50px;
+    display: block;
+}
+.contenedor-card .space-200{
+    height: 200px;
+    display: block;
+}
+.contenedor-card .white-board{
+    background-color: #FFFFFF;
+    min-height: 200px;
+    padding: 60px 60px 20px;
+}
+.contenedor-card .ct-heart{
+    color: #F74933;
+}
+
+.contenedor-card  pre.prettyprint{
+    background-color: #ffffff;
+    border: 1px solid #999;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: left;
+}
+.contenedor-card .atv, .contenedor-card .str{
+    color: #05AE0E;
+}
+.contenedor-card  .tag, .contenedor-card .pln, .contenedor-card .kwd{
+    color: #3472F7;
+}
+.contenedor-card .atn{
+    color: #2C93FF;
+}
+.contenedor-card .pln{
+    color: #333;
+}
+.contenedor-card .com{
+    color: #999;
+}
+
+.contenedor-card .btn-simple{
+    opacity: .8;
+    color: #666666;
+    background-color: transparent;
+}
+
+.contenedor-card .btn-simple:hover,
+.contenedor-card .btn-simple:focus{
+    background-color: transparent;
+    box-shadow: none;
+    opacity: 1;
+}
+.contenedor-card .btn-simple i{
+    font-size: 16px;
+}
+
+.contenedor-card .navbar-brand-logo{
+    padding: 0;
+}
+.contenedor-card .navbar-brand-logo .logo{
+    border: 1px solid #333333;
+    border-radius: 50%;
+    float: left;
+    overflow: hidden;
+    width: 60px;
+}
+.contenedor-card .navbar .navbar-brand-logo .brand{
+    color: #FFFFFF;
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 60px;
+}
+.contenedor-card .navbar-default .navbar-brand-logo .brand{
+    color: #555;
+}
+
+
+/*       Fix bug for IE      */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .contenedor-card .front, .contenedor-card .back{
+        -ms-backface-visibility: visible;
+        backface-visibility: visible;
+    }
+
+    .contenedor-card .back {
+        visibility: hidden;
+        -ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67);
+    }
+    .contenedor-card .front{
+        z-index: 4;
+    }
+    .contenedor-card .card-container:not(.manual-flip):hover .back,
+    .contenedor-card .card-container.manual-flip.hover .back{
+        z-index: 5;
+        visibility: visible;
+    }
+}
+
+.contenedor-card .date-month a {
+    color: #333333;
+    text-decoration: none;
+    background: transparent;
+}
+
+.contenedor-card .date-month {
+    position: absolute;
+    overflow: hidden;
+    margin-top: -100px;
+    margin-left: 75%;
+}
+
+.contenedor-card .date {
+    position: relative;
+    z-index: 30;
+    display: block;
+    text-align: center;
+    height: 60px;
+    width: 60px;
+    line-height: 63px;
+    font-weight: 800;
+    font-size: 29px;
+    border-radius: 3px;
+    background: #fdc600;
+}
+
+.contenedor-card .month {
+    position: relative;
+    top: -3px;
+    z-index: 20;
+    padding-top: 2px;
+    text-align: center;
+    display: block;
+    background: #333333;
+    color: #fff;
+    height: 28px;
+    line-height: 28px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 3px;
+}
+
+.contenedor-card .likes-efbk{
+    float: left;
+    margin-left: 10px;
+    margin-top: -6px;
+}
+
+.contenedor-card .card .content .main h3 {
+    text-decoration: underline;
+}
+
+.contenedor-card .i_paging_efbk {
+    margin-top: 15px;
+}
+
+.contenedor-card .paginarPostNext, .contenedor-card .paginarPostPrev {
+    height: 65px;
+    width: 65px;
+    border-radius: 100px;
+    top: 40%;
+    overflow: hidden;
+    background: none;
+}
+
+.contenedor-card .paginarPostNext:hover, 
+.contenedor-card .paginarPostPrev:hover {
+    color: #fff;
+    background-color: #d2322d !important;
+    border-color: #ac2925;
+}
+
+.contenedor-card .carousel-control.right {
+   margin-right: 0px !important; 
+}
+
+.contenedor-card .carousel-control.left {
+   margin-left: 0px !important; 
+}
+
+@media (min-width: 1199px) {
+
+    .contenedor-card .date-month {       
+        margin-top: -100px;
+    }
+
+}
+
+@media (min-width: 410px) and (max-width: 1199px){
+
+    .contenedor-card .date-month {       
+        margin-top: -60px;
+    }
+
+}
+
+@media (max-width: 981px){
+
+    .contenedor-card .date-month {       
+        margin-top: -60px;
+    }
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+
+    .contenedor-card .tarjetas-efkb-presonalizadas {       
+        width: 40% !important;
+        margin-left: 7%!important;
+    }
+
+}
+
+@media (min-width: 560px) and (max-width: 991px){
+
+    .contenedor-card .tarjetas-efkb-presonalizadas {       
+        width: 70% !important;
+        margin-left: 15%!important;
+    }
+
+}
